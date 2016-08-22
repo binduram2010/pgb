@@ -1,0 +1,88 @@
+0.7.5
+Released: 9.10.2014
+* Fixed installation migration issues.
+
+0.7.4
+Released: 7.15.2014
+* Fixed removed reflections method in cart/form.
+
+0.7.3
+Released: 7.15.2014
+* Fixed cli.rb reference to incorrect migration installation.
+
+0.7.2
+Released: 5.12.2014
+* Minor fix in migrations to fix namespace migration issue.
+
+0.7.1
+Released: 4.07.2014
+* Upgrade to Rails 4.1
+
+0.7.0
+Released: 03.31.2014
+* Initial release for Rails 4 upgrade
+
+0.6.33
+Released: 01.22.2014
+* Order total calculation update to be more clear in admin.
+
+0.6.32
+Released: 5.16.2013
+* New confirmation_sent field to prevent duplicate order confirmations from being sent.
+  ** Note: rake piggybak:install:migrations, rake db:migrate needed to add column to orders table
+
+0.6.30
+Released: 4.23.2013
+* Cart empty? method
+
+0.6.29
+Released: 4.15.2013
+* Asset compilation issues
+
+0.6.28
+Released: 4.11.2013
+* Line Item shipping bug fix
+
+0.6.27
+Released: 3.22.2013
+* jQuery upgrade
+* RailsAdmin upgrade
+* Payment object update
+* Minor fix that will not cause exception when payment & tax method with no calculator saved.
+
+0.6.25
+Released: 1.28.2013
+* Minor order#initialize_user cleanup.
+* Change datatype of user_agent from string to text. Migration needed.
+* Allow options to be passed in cart form.
+
+Version: 0.6.24
+Released: 12.03.2012
+* Bundle updates and upgrade to RailsAdmin 0.3.0, which appears to resolve admin issues.
+
+Version: 0.6.23
+Released: 11.17.2012
+* Download text fix to include all line items.
+* Minor proxy association cleanup.
+* Tax calculation fix: reduce tax on totals where extensions (coupons) reduce totals.
+
+Version: 0.6.22
+Released: 11.16.2012
+* Important proxy association fix to ignore line items that are marked for destruction
+
+Version: 0.6.20
+Released: 11.16.2012
+* Broke piggybak/orders/submit.html.erb to include several partials: user_details, billing_address, shipping_address, shipping, payment. To make more easily overridable checkout. No HTML changes were made here.
+* Introduced Piggybak configuration for managing abilities. Instead of adding individual classes to app/models/ability, please add:
+  can :manage, Piggybak.config.manage_classes(&:constantize)
+  Piggybak.config.extra_abilities.each do |extra_ability|
+    can extra_ability[:abilities], extra_ability[:class_name].constantize
+  end
+  Extensions will append to the manage_classes and extra_abilities to register classes to be managed via RailsAdmin. 
+
+Version: 0.6.19
+Released: 11.15.2012
+* Added SSL support in config
+* Installation script fix
+* Admin label cleanup
+* Sellable admin label cleanup
